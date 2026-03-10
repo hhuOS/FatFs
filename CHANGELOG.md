@@ -258,3 +258,12 @@
  - Fixed a potential issue when work FatFs concurrency with FF_FS_REENTRANT, FF_VOLUMES >= 2 and FF_FS_LOCK > 0.
  - Made f_setlabel() accept a volume label in Unix style volume ID when FF_STR_VOLUME_ID == 2.
  - Made FatFs update PercInUse field in exFAT VBR. (A preceding f_getfree() is needed for the accuracy)
+
+## R0.15b (June 21, 2025)
+ - Added support for the timestamp of created time. (FF_FS_CRTIME)
+ - Fixed FatFs fails to load the FsInfo in FAT32 volumes and the f_getfree always be forced a full FAT scan which takes a long time. (appeared at R0.15a)
+
+## R0.16 (July 22, 2026)
+ - Removed a long-pending limitation that f_getcwd and double-dot ".." in the path name did not work on the exFAT volume.
+ - Fixed f_readdir cannot detect end of directory and it leads the application process into infinite loop. (appeared at R0.15b)
+ - Fixed dot names with terminating separator or duplicated separator are rejected when LFN is not enabled.
